@@ -25,8 +25,8 @@
                 <a class="mui-navigate-right" href="#account">
                     <img class="mui-media-object mui-pull-left head-img" id="head-img" src="../images/user.jpg">
                     <div class="mui-media-body">
-                        Hello MUI
-                        <p class="mui-ellipsis">账号:hellomui</p>
+                       <span class="pp-name"></span>
+                        <!-- <p class="mui-ellipsis">账号:hellomui</p> -->
                     </div>
                 </a>
             </li>
@@ -77,9 +77,11 @@
         url: '/abc/user/queryUserMessage',
         type: 'get',
         success: function(info) {
+            console.log(info)
             if (info.error) {
-                // location.href = './login.html'
+                location.href = './login.html'
             }
+            $('span.pp-name').text(info.username)
         }
     })
 
@@ -92,9 +94,9 @@
             type: 'get',
             success: function(info){
                 console.log(info);
-                if (info.success) {
-                    location.href = '/index.html'
-                }
+                // if (info.success) {
+                //     // location.href = '/index.html'
+                // }
             }
         })
     })
